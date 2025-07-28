@@ -1,0 +1,480 @@
+body {
+  background-color: rgb(69, 68, 83);
+  transition: 0.5s;
+}
+.player {
+  background-color: rgba(65, 8, 65, 0.384);
+  border-radius: 25px;
+  box-shadow: 0px 0px 20px rgba(65, 8, 65, 0.384);
+  width: 20vw;
+  height: 50vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+
+  transition: 0.5s;
+}
+.music_info {
+  color: white;
+  font-family: "raleway", "poppins", sans-serif;
+  background-color: transparent;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#sub ~ label {
+  cursor: pointer;
+}
+.player_music {
+  margin-top: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 8;
+}
+.player_music figure {
+  width: 13rem;
+  height: 13rem;
+  background-color: red;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.player_music figure img {
+  width: 13rem;
+  height: 13rem;
+  align-self: center;
+  object-fit: cover;
+  box-shadow: 0px 0px 20px rgba(22, 3, 22, 0.384);
+}
+
+
+#volumeControl {
+  appearance: none;
+  position: absolute;
+  right: 3rem;
+
+  width: 0.7rem;
+  height: 7rem;
+
+  border-radius: 50px;
+  background: linear-gradient(0deg, rgb(92, 62, 104) 50%, transparent 50%);
+  writing-mode: vertical-rl;
+  direction: rtl;
+  cursor: pointer;
+}
+
+/* Thumb: for Chrome, Safari, Edge */
+#volumeControl::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 9999px;
+  background: #dbdce8;
+  box-shadow: none;
+}
+
+/* Thumb: for Firefox */
+#volumeControl::-moz-range-thumb {
+  border: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 9999px;
+  background: #dbdce8;
+  box-shadow: none;
+}
+
+.controls {
+  background-color: transparent;
+  width: 100%;
+}
+.line {
+  background-color: transparent;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-family: "railway", "poppins";
+}
+.timeline {
+  background-color: white;
+
+  width: 100%;
+  height: 3px;
+
+}
+.timeline:hover{
+  height: 7px;
+}
+.real_time_inline {
+  width: 0%;
+  height: 100%;
+  background-color: rgb(115, 3, 190);
+}
+.start_stop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: 3rem;
+}
+.start_stop i {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+.start_stop i:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.music_menu {
+  background-color: transparent;
+  width: 45rem;
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow-x: hidden;
+  z-index: -1;
+}
+.icon {
+  width: 4rem;
+  height: 4rem;
+}
+.bxs-chevrons-right,
+.bxs-chevrons-left {
+  z-index: 4;
+}
+
+.icone {
+  color: white;
+  width: 4rem;
+  position: fixed;
+  justify-self: center;
+
+  height: 4rem;
+  z-index: 7;
+}
+.real_time_inline {
+  pointer-events: none;
+}
+.icone i {
+  font-size: 3rem;
+  justify-self: center;
+  cursor: pointer;
+  z-index: 8;
+}
+.icone .bx.bx-menu.animation {
+  animation: open_menu 0.8s ease-in-out forwards;
+  z-index: 8;
+}
+/* .icone .bx.bx-menu.return {
+  transform: translateX(-16rem) scale(0);
+  opacity: 0;
+  animation: return_menu 0.8s ease-in-out forwards;
+} */
+.icone .bx.bx-menu.return {
+  transform: scale(0);
+  opacity: 0;
+  z-index: 8;
+  animation: return_menu 0.8s ease-in-out forwards;
+}
+@keyframes open_menu {
+  50% {
+    transition: 0.5s;
+    transform: translateX(-16rem);
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(0);
+  }
+}
+@keyframes return_menu {
+  50% {
+    transition: 0.5s;
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.icone i:nth-child(1) {
+  display: block;
+  transition: 0.5s;
+  z-index: 8;
+}
+.icone i:nth-child(2) {
+  display: none;
+  transition: 0.5s;
+
+  opacity: 0;
+  animation: enter 0.5s ease-in-out forwards;
+  transform: translateX(0rem) scale(0);
+  z-index: 8;
+}
+.icone i:nth-child(2).reverse {
+  transition: 0.5s;
+
+  opacity: 1;
+  animation: echo 0.5s ease-in-out forwards;
+  transform: translateX(-20rem) scale(1);
+}
+@keyframes enter {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes echo {
+  from {
+    opacity: 1;
+    transform: translateX(0rem) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20rem) scale(0);
+  }
+}
+.itens {
+  width: 70%;
+  margin-right: -100vw;
+  height: 80%;
+  overflow: auto;
+
+  background-color: transparent;
+  display: none;
+  flex-direction: column;
+  align-items: end;
+  gap: 1rem;
+  transition: 0.5s;
+}
+.exemple1 {
+  background-color: white;
+  border-radius: 10px;
+  width: 90%;
+  height: 7rem;
+  position: relative;
+  display: flex;
+  padding: 1rem;
+  transform: scale(0.9);
+  z-index: 4;
+  font-family: "raleway", sans-serif;
+}
+.exemple1.active {
+  transform: scale(1.2); /* Centralizado, maior */
+}
+
+.exemple1.next {
+  transform: scale(1.1); /* Ao lado direito, um pouco maior */
+}
+
+.exemple1.prev {
+  transform: scale(1.1); /* Ao lado esquerdo, um pouco maior */
+}
+
+.exemple1.inactive {
+  transform: scale(0.8); /* Pontas, menor */
+}
+.music_menu_info {
+  width: 75%;
+  background-color: white;
+  display: flex;
+  padding: 1rem 1rem 1rem 2rem;
+  flex-direction: column;
+  
+}
+.exemple1 figure {
+  background-color: white;
+  width: 5rem;
+  height: 5rem;
+
+}
+.exemple1 figure img {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+.play {
+  position: absolute;
+  top: 1rem;
+  background-color: rgba(0, 0, 0, 0.212);
+  width: 5rem;
+  height: 5rem;
+  z-index: 3;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.play i {
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+}
+.play i:active,
+.play:active i {
+  transform: scale(0.9);
+}
+
+@keyframes scaleup {
+  100% {
+    transform: scale(1.4);
+  }
+}
+
+.timr {
+  width: 40%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+}
+.timr p {
+  font-family: "raleway", sans-serif;
+  font-weight: 600;
+}
+
+.music_add {
+  background-color: transparent;
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  top: 4rem;
+  left: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 7;
+}
+.music_add i {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 7;
+}
+.music_add i:nth-child(2) {
+  display: none;
+}
+.music_add i:hover {
+  transform: scale(1.1);
+}
+
+.music_add i:active {
+  transform: scale(0.9);
+}
+
+.simple_modal {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  width: 18rem;
+  height: 20rem;
+  background-color: rgba(95, 158, 160, 0.397);
+  clip-path: circle(100px at -10% -10%);
+
+  animation: cir 0.7s ease-in-out forwards;
+
+  display: none;
+  z-index: 4;
+
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  border-radius: 10px;
+}
+
+.input {
+  position: relative;
+  width: 70%;
+  height: 3rem;
+  background-color: transparent;
+}
+.input input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.input label {
+  position: absolute;
+  color: white;
+  font-family: "inter";
+  left: 0;
+  top: 0;
+  font-size: 0.8rem;
+}
+#file,
+#music_url {
+  display: none;
+}
+.input_send {
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+}
+.input_file_send {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.input_file label {
+  font-size: 2rem;
+  color: white;
+  width: 3rem;
+  height: 2rem;
+  padding: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.input_file_send div:hover {
+  transform: scale(1.1);
+}
+.input_file_send div:active {
+  transform: scale(1.1);
+}
+@keyframes cir {
+  to {
+    clip-path: circle(700px at -10% -10%);
+  }
+}
+@keyframes outcir {
+  from {
+    clip-path: circle(700px at -10% -10%);
+  }
+  to {
+    clip-path: circle(0 at -10% -10%);
+  }
+}
