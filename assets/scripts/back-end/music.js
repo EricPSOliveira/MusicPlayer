@@ -1,53 +1,11 @@
 const play_button = document.querySelector('.bx.bx-play')
 const left_button = document.querySelector('.bx.bxs-chevrons-left')
 const right_button = document.querySelector('.bx.bxs-chevrons-right')
-let all_sound = [
-  {
-    "id": "1",
-    "link": "./assets/scripts/back-end/musicTest/cash.mp3",
-    "nome": "Cash",
-    "autor": "Mark Karan, Jeremy Hoenig",
-    "img": "./assets/scripts/back-end/musicTest/no-image.jpg"
-  },
-  {
-    "id": "2",
-    "link": "./assets/scripts/back-end/musicTest/dmoney.mp3",
-    "nome": "Drifting Memories",
-    "autor": "The Mini Vandals",
-    "img": "./assets/scripts/back-end/musicTest/no-image.jpg"
+let all_sound = new Array();
 
-  },
-  {
-    "id": "3",
-    "link": "./assets/scripts/back-end/musicTest/sky.mp3",
-    "nome": "Numb Sky",
-    "autor": "Mark Karan, Scott Guberman, Angeline Saris, Jeremy Hoenig",
-    "img": "./assets/scripts/back-end/musicTest/no-image (1).jpg"
-  },
-  {
-    "id": "4",
-    "link": "./assets/scripts/back-end/musicTest/fog.mp3",
-    "nome": "Obon Fog",
-    "autor": "The Mini Vandals",
-    "img": "./assets/scripts/back-end/musicTest/no-image (2).jpg"
-  },
-  {
-    "id": "5",
-    "link": "./assets/scripts/back-end/musicTest/rain.mp3",
-    "nome": "Rain Over Kyoto Station",
-    "autor": "The Mini Vandals",
-    "img": "./assets/scripts/back-end/musicTest/no-image (3).jpg"
-  },
-  {
-    "id": "6",
-    "link": "./assets/scripts/back-end/musicTest/shad.mp3",
-    "nome": "Shadowstep",
-    "autor": "The Mini Vandals",
-    "img": "./assets/scripts/back-end/musicTest/no-image (4).jpg"
-
-  }
-];
-
+all_sound.push([
+  { 'id': '4', 'link': "./assets/test1/test.mp3", 'nome': "carnificina", 'autor': "Luisa sonza" }
+])
 
 
 
@@ -83,6 +41,9 @@ let formation;
 
 
 
+
+
+
 volumeControl.addEventListener('input', function () {
   const activeColor = formation;
   const inactiveColor = "transparent";
@@ -90,6 +51,7 @@ volumeControl.addEventListener('input', function () {
   const ratio = (this.value - this.min) / (this.max - this.min) * 100;
   this.style.background = `linear-gradient(0deg, rgb(${activeColor}) ${ratio}%, ${inactiveColor} ${ratio}%)`;
 })
+
 
 play_button.addEventListener('click', (e) => {
   if (e.target == play_button && play_button.classList.contains('bx-play') == true) {
@@ -99,7 +61,7 @@ play_button.addEventListener('click', (e) => {
 
     url = all_sound[0].link;
     autorrae.innerHTML = all_sound[index].autor
-    musca.innerHTML = all_sound[index].nome
+musca.innerHTML = all_sound[index].nome
 
 
 
@@ -142,8 +104,9 @@ function onSound(url, sec, event) {
     if (all_sound[index].img) {
       img_reference.src = all_sound[index].img
     } else {
-      img_reference.src = './assets/scripts/back-end/musicTest/no-image.jpg'
+      img_reference.src = './assets/test1/no_image.png'
     }
+    console.log(img_reference.src)
     autorrae.innerHTML = all_sound[index].autor
     musca.innerHTML = all_sound[index].nome
 
@@ -159,15 +122,15 @@ function onSound(url, sec, event) {
       console.log(`Cor dominante: RGB(${dominantColor.join(", ")})`);
       document.querySelector('body').style.backgroundColor = `rgb(${dominantColor.join(", ")})`
 
-      for (let k = 0; k < dominantColor.length; k++) {
+      for(let k = 0; k < dominantColor.length; k++){
         dominantColor[k] = dominantColor[k] + 50
       }
       console.log(dominantColor)
       document.querySelector('.player').style.backgroundColor = `rgba(${dominantColor.join(", ")}, 0.384)`
       document.querySelector('.player').style.boxShadow = `0px 0px 20px rgba(${dominantColor.join(", ")}, 0.384)`
-      for (let k = 0; k < dominantColor.length; k++) {
+      for(let k = 0; k < dominantColor.length; k++){
         dominantColor[k] = dominantColor[k] + 50
-
+        
       }
       formation = dominantColor
       document.querySelector('#volumeControl').style.background = `linear-gradient(0deg, rgba(${dominantColor.join(", ")}, 0.384) 50%, transparent 50%)`
@@ -201,6 +164,8 @@ function onSound(url, sec, event) {
     }
   })
 
+
+
   musica.addEventListener('timeupdate', () => {
 
     sec = Math.round(musica.currentTime);
@@ -214,6 +179,7 @@ function onSound(url, sec, event) {
 
   })
 
+
   volumeControl.addEventListener('input', (e) => {
     const volume = e.target.value;
     musica.volume = volume; // Ajusta o volume do áudio
@@ -223,9 +189,20 @@ function onSound(url, sec, event) {
 
 
   });
+
+  console.log()
+
+
+
+
+
   return musica;
   return sec;
+
+
+
 }
+
 
 function alternar(sec) {
   if (sec == duracao) {
@@ -253,6 +230,10 @@ function formatarTempo(segundos) {
   // Retorna o formato "M:ss"
   return `${minutos}:${segundosRestantes.toString().padStart(2, '0')}`;
 }
+
+
+
+
 
 const offSound = () => {
   sec = musica.currentTime
@@ -387,6 +368,10 @@ right_button.addEventListener("click", (e) => {
     }
   }
 })
+
+
+
+
 
 
 function getPixelColorFromImage(img_reference, x, y) {

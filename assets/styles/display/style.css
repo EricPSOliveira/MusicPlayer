@@ -285,7 +285,6 @@ body {
   padding: 1rem;
   transform: scale(0.9);
   z-index: 4;
-  font-family: "raleway", sans-serif;
 }
 .exemple1.active {
   transform: scale(1.2); /* Centralizado, maior */
@@ -303,25 +302,21 @@ body {
   transform: scale(0.8); /* Pontas, menor */
 }
 .music_menu_info {
-  width: 75%;
+  width: 35%;
   background-color: white;
   display: flex;
-  padding: 1rem 1rem 1rem 2rem;
+  padding: 1rem;
   flex-direction: column;
-  
 }
 .exemple1 figure {
   background-color: white;
   width: 5rem;
   height: 5rem;
-
 }
 .exemple1 figure img {
   width: 100%;
   height: 100%;
-  align-self: center;
   object-fit: cover;
-  object-position: center;
   cursor: pointer;
 }
 .play {

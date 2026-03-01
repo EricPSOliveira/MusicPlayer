@@ -4,6 +4,9 @@ const itens_for_menu = document.querySelector('.itens')
 
 window.addEventListener('load', async () => {
   increase()
+
+
+  
 })
 
 
@@ -14,10 +17,39 @@ window.addEventListener('load', async () => {
 
 
 async function increase() {
+  const response = await fetch('./assets/scripts/back-end/php/menu.php');
+
+  console.log(response)
+
+
+  const data = await response.json()
+  console.log(data)
+
+  if (data.status === 'success') {
+    let fontaine = data.data
+
+    console.log(fontaine)
+
+    fontaine.forEach(obj => {
+      if (obj.link) {
+        obj.link = obj.link.replace(/\\/g, '/');  // Substitui todas as barras invertidas por barras normais no valor de 'link'
+        obj.link = obj.link.replace("C:/xampp/htdocs/Eric/Music player", ".");;  // Substitui todas as barras invertidas por barras normais no valor de 'link'
+      }
+      if (obj.img) {
+        obj.img = obj.img.replace(/\\/g, '/');  // Substitui todas as barras invertidas por barras normais no valor de 'link'
+        obj.img = obj.img.replace("C:/xampp/htdocs/Eric/Music player", ".");;  // Substitui todas as barras invertidas por barras normais no valor de 'link'
+      }
+    });
+
+    all_sound.push(...fontaine)
+    console.log(all_sound)
+  }
+
+
 
 
   sel.forEach((e) => {
-    e.src = './assets/scripts/back-end/musicTest/no-image.jpg'
+    e.src = './assets/test1/no_image.png'
   })
 
 

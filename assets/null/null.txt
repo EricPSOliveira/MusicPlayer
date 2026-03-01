@@ -1,0 +1,29 @@
+
+
+// function returning(url, sec) {
+
+//   musica = new Audio(url)
+//   musica = musica.pause()
+//   musica.play()
+
+//   setTimeout(() => {
+//     duracao = (musica.duration / 60).toFixed(2);
+//     duracao = duracao.replace('.', ':')
+//     duracao_html.textContent = duracao
+//     autorrae.innerHTML = all_sound[index].autor
+//     musca.innerHTML = all_sound[index].nome
+//   }, 300);
+
+//   musica.addEventListener('timeupdate', () => {
+
+//     sec = Math.round(musica.currentTime);
+//     console.log(sec)
+
+
+
+//     cTime_html.textContent = formatarTempo(sec)
+  
+
+
+//   })
+// }

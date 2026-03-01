@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/date-fns@2.30.0/dist/date-fns.min.js" defer></script>
+  
+
+
+
+  <link href="  https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel=" stylesheet">
+  <link rel="shortcut icon" href="logo.jpg">
+  <link rel="stylesheet" href="./assets/styles/display/reset.css">
+  <link rel="stylesheet" href="./assets/styles/display/style.css">
+
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet">
+  <title>Music</title>
+</head>
+
+<body>
+  <div class="music_add">
+    <i class="bx bx-plus"></i>
+    <i class="bx bx-minus"></i>
+  </div>
+  <form class="simple_modal" enctype="multipart/form-data">
+    <span></span><span></span><span></span>
+    <div class="input">
+      <input type="text" id="music" name="music">
+      <label for="music">music</label>
+    </div>
+    <div class="input">
+      <input type="text" id="autor" name="autor">
+      <label for="autor">autor</label>
+    </div>
+    <div class="input_file_send">
+      <div class="input_file">
+        <input type="file" id="file" title="import" name="input_img">
+        <label for="file"><i class="bx bx-import"></i></label>
+      </div>
+      <div class="input_send">
+        <input type="submit" value="" id="sub">
+        <label for="sub"> <i class="bx bx-send"></i></label>
+      </div>
+    </div>
+    <span></span>
+    <span></span>
+    <span></span>
+  </form>
+  <div class="player">
+    <div class="music_info">
+      <p id="musica">--</p>
+      <p id="autorrae">--</p>
+    </div>
+    <div class="player_music">
+      <figure><img src="./assets/test1/no_image.png" id="img_reference"
+          alt="music_atual">
+          <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
+          </figure>
+          
+    </div>
+    <div class="controls">
+      <div class="line">
+        <div class="time"><span id="cTime">0:00</span> | <span
+            id="duracao">0:00</span></div>
+        <div class="timeline">
+          <div class="real_time_inline"></div>
+        </div>
+      </div>
+      <div class="start_stop">
+        <i class="bx bxs-chevrons-left"></i>
+        <i class="bx bx-play"></i>
+        <i class="bx bxs-chevrons-right"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="music_menu">
+    <div class="icon">
+      <div class="icone">
+        <i class="bx bx-menu"></i>
+        <i class="bx bx-chevron-right"></i>
+      </div>
+    </div>
+    <div class="itens">
+
+      <!-- <div class="exemple1">
+        <figure><img class="sel" src="./assets/test1/saopaulo_anitta.png"
+            alt="exemple1">
+          <div class="play">
+            <i class="bx bx-play"></i>
+          </div>
+        </figure>
+        <div class="music_menu_info">
+          <p>autor</p>
+          <h3 id="cosmic">PRIMEIRO</h3>
+        </div>
+        <div class="timr">
+          <p>04:30</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.4.0/color-thief.umd.js"></script>
+
+  <script src="./assets/scripts/front-end/playbutton.js" defer></script>
+  <script src="./assets/scripts/front-end/menu.js" defer></script>
+  <script src="./assets/scripts/front-end/create.js" defer></script>
+  <script src="./assets/scripts/back-end/music.js" defer></script>
+  <script src="./assets/scripts/back-end/increase_menu.js" defer></script>
+  <script src="./assets/scripts/back-end/create.js" defer></script>
+  <script src="./assets/scripts/back-end/index.indentify.js" defer></script>
+  <script src="./assets/scripts/front-end/menurolante.js" defer></script>
+</body>
+
+</html>

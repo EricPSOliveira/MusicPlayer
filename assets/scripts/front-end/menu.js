@@ -1,9 +1,21 @@
 const menu_treebar = document.querySelector('.icon')
 const menu_treebar_icon = document.querySelector('.bx.bx-menu')
 const menu_close_icon = document.querySelector('.bx.bx-chevron-right')
+  
+
+
+
 const menu_itens = document.querySelector('.itens')
 const exemplo = document.querySelectorAll('.exemple1')
+
+
 const player = document.querySelector('.player')
+
+
+ console.log(exemplo)
+ document.addEventListener('click', (e)=>{
+
+ })
 
 menu_treebar_icon.addEventListener('click', (e)=>{
   if(e.target == menu_treebar_icon && window.getComputedStyle(menu_treebar_icon).display == 'block'){
@@ -26,6 +38,8 @@ menu_treebar_icon.addEventListener('click', (e)=>{
               
               menu_treebar_icon.classList.remove('animation')
           }, 500);
+  } else{
+    console.log(window.getComputedStyle(menu_treebar_icon).display)
   }
 })
 menu_close_icon.addEventListener('click', (e)=>{
@@ -41,5 +55,5 @@ menu_close_icon.addEventListener('click', (e)=>{
 
         menu_close_icon.classList.remove('reverse')
     }, 500);
-  }
+  }else{}
 })
