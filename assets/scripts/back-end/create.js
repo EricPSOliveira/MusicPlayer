@@ -5,8 +5,8 @@ simple_modal.addEventListener('submit', async (e) => {
 
   let input_music = document.querySelector('#music').value;
   let input_autor = document.querySelector('#autor').value;
-  const input_img = document.querySelector('#file'); // Imagem
-  const music_url = document.querySelector('#music_url'); // Arquivo MP3
+  const input_img = document.querySelector('#file'); 
+  const music_url = document.querySelector('#music_url'); 
 
   const formData = new FormData(simple_modal);
   formData.append('input_music', input_music);
@@ -17,10 +17,9 @@ simple_modal.addEventListener('submit', async (e) => {
   }
 
   if (music_url?.files[0]) {
-    formData.append('music_url', music_url.files[0]); // Adiciona o arquivo MP3
+    formData.append('music_url', music_url.files[0]);
   }
 
-  // Debug: Ver os valores do FormData
   for (const [key, value] of formData.entries()) {
     console.log(key, value);
   }

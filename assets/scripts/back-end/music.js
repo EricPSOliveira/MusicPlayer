@@ -139,9 +139,6 @@ function onSound(url, sec, event) {
 
     };
 
-    // Capture a cor do pixel e exiba
-
-
 
 
   }, 300);
@@ -224,10 +221,8 @@ function alternar(sec) {
 }
 
 function formatarTempo(segundos) {
-  const minutos = Math.floor(segundos / 60); // Calcula os minutos
-  const segundosRestantes = segundos % 60; // Calcula os segundos restantes
-
-  // Retorna o formato "M:ss"
+  const minutos = Math.floor(segundos / 60); 
+  const segundosRestantes = segundos % 60; 
   return `${minutos}:${segundosRestantes.toString().padStart(2, '0')}`;
 }
 
@@ -375,22 +370,17 @@ right_button.addEventListener("click", (e) => {
 
 
 function getPixelColorFromImage(img_reference, x, y) {
-  // Crie um canvas em memória para processar a imagem
+
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
 
-  // Configure o tamanho do canvas igual ao da imagem
   canvas.width = img_reference.width;
   canvas.height = img_reference.height;
 
-  // Desenhe a imagem no canvas
   ctx.drawImage(img_reference, 0, 0, img_reference.width, img_reference.height);
 
-  // Obtenha os dados de cor do pixel na posição (x, y)
   const imageData = ctx.getImageData(x, y, 1, 1);
   const [r, g, b, a] = imageData.data;
-
-  // Retorne a cor no formato RGBA
 
   console.log(canvas, ctx, imageData, r, g, b, a)
   return `rgba(${r}, ${g}, ${b}, ${a / 255})`;

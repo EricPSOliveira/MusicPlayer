@@ -32,12 +32,12 @@ async function increase() {
 
     fontaine.forEach(obj => {
       if (obj.link) {
-        obj.link = obj.link.replace(/\\/g, '/');  // Substitui todas as barras invertidas por barras normais no valor de 'link'
-        obj.link = obj.link.replace("C:/xampp/htdocs/Eric/Music player", ".");;  // Substitui todas as barras invertidas por barras normais no valor de 'link'
+        obj.link = obj.link.replace(/\\/g, '/');  
+        obj.link = obj.link.replace("C:/xampp/htdocs/Eric/Music player", ".");
       }
       if (obj.img) {
-        obj.img = obj.img.replace(/\\/g, '/');  // Substitui todas as barras invertidas por barras normais no valor de 'link'
-        obj.img = obj.img.replace("C:/xampp/htdocs/Eric/Music player", ".");;  // Substitui todas as barras invertidas por barras normais no valor de 'link'
+        obj.img = obj.img.replace(/\\/g, '/'); 
+        obj.img = obj.img.replace("C:/xampp/htdocs/Eric/Music player", ".");
       }
     });
 
@@ -62,18 +62,16 @@ async function increase() {
 
     const usar = new Audio(sound.link);
     usar.addEventListener('loadedmetadata', () => {
-      const duracao = usar.duration; // Em segundos
+      const duracao = usar.duration;
       minutos = Math.floor(duracao / 60);
       segundos = Math.floor(duracao % 60);
 
-      // Verificar se o item já está no array `number`
       const existing = number.find(item => item.id === sound.id);
       if (existing && existing.lopus) {
         console.log(sound.id);
         return;
       } else {
 
-        // Criar o HTML dinamicamente
         const imgSrc = sound.img ? sound.img : './assets/test1/no_image.png';
         const div = `
       <div class="exemple1">
@@ -92,7 +90,6 @@ async function increase() {
 
         itens_for_menu.innerHTML += div;
 
-        // Adicionar ao array `number`
         number.push({ id: sound.id, lopus: true });
       }
     });
